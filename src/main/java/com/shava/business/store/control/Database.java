@@ -10,6 +10,7 @@ import javax.ejb.Startup;
 import javax.enterprise.inject.Produces;
 
 import com.mongodb.MongoClient;
+import com.mongodb.MongoClientURI;
 import com.mongodb.client.MongoDatabase;
 
 /**
@@ -32,7 +33,11 @@ public class Database {
     
     @PostConstruct
     public void init() {
-    	mongoClient = new MongoClient("nosql.database.com");
+    	//Openshift 
+    	MongoClientURI connectionString = new MongoClientURI(System.getenv("MONGODB_URL"));
+    	mongoClient = new MongoClient(connectionString);
+//    	normal use		
+//    	mongoClient = new MongoClient("nosql.database.com");
     }
     
     @PreDestroy

@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.shava</groupId>
 	<artifactId>calendar</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0-RELEASE</version>
 	<packaging>war</packaging>
 	<dependencies>
 		<dependency>
@@ -30,7 +30,7 @@
 
 	</dependencies>
 	<build>
-		<finalName>calendarMG</finalName>
+		<finalName>ROOT</finalName>
 	</build>
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>

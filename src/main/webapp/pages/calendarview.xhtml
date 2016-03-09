@@ -7,6 +7,30 @@
 	<ui:define name="content">
 		<h:outputScript name="jquery/jquery.js" library="primefaces"
 			target="head" />
+	<script type="text/javascript">
+    PrimeFaces.locales['es'] = {
+        closeText: 'cerrar',
+        prevText: 'Anterior',
+        nextText: 'Proximo',
+        currentText: 'Fecha Actual',
+        monthNames: ['Enero','Febrero','Mazo','Abril','Mayo','Junio',
+            'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
+        monthNamesShort: ['Ene','Feb','Mar','Abr','May','Jun',
+            'Jul','Ago','Sep','Oct','Nov','Dic'],
+        dayNames: ['Domingo','Lunes','Martes','Miercoles','Jueves','Viernes','Sabado'],
+        dayNamesShort: ['Dom','Lun','Mar','Mier','Jue','Vie','Sab'],
+        dayNamesMin: ['D','L','M','Mi','J','V','S'],
+        weekHeader: 'Semana',
+        firstDay: 1,
+        isRTL: false,
+        showMonthAfterYear: false,
+        yearSuffix: '',
+        month: 'Mes',
+        week: 'Semana',
+        day: 'Dia',
+        allDayText : 'Todo el dia'
+    };
+</script>
 
 		<f:metadata>
 			<f:viewAction actionListener="#{calendarBean.loadSchedule}" />
@@ -21,7 +45,7 @@
 			<p:schedule id="schedule" value="#{calendarBean.model}" timeZone="GMT-5"
 				 showHeader="false" tooltip="true" minTime="09:00:00" maxTime="20:00:00"
 				showWeekNumbers="false" allDaySlot="false" draggable="false" resizable="false"
-				widgetVar="scheduleWidget" view="agendaWeek">
+				widgetVar="scheduleWidget" view="agendaWeek" locale="es">
 				<p:ajax event="dateSelect" listener="#{calendarBean.onDateSelect}"
 					update="eventDetails" oncomplete="PF('eventDialog').show();" />
 				<p:ajax event="eventSelect" listener="#{calendarBean.onEventSelect}"
@@ -52,9 +76,9 @@
 					<p:printer target="task"/>
 				</p:commandButton>
 				<p:schedule id="task" timeZone="GMT-5" showHeader="true" tooltip="true" draggable="false" resizable="false"
-				value="#{calendarBean.modelTask}" view="month" widgetVar="taskWidget" rightHeaderTemplate="blank">
+				value="#{calendarBean.modelTask}" view="month" widgetVar="taskWidget" rightHeaderTemplate="blank" locale="es">
 					<p:ajax event="dateSelect" listener="#{calendarBean.onDateTaskSelect}"
-					update="taskDetails" oncomplete="PF('taskDialog').show();" />
+					update="taskDetails" oncomplete="PF('taskDialog').show();"/>
 				<p:ajax event="eventSelect" listener="#{calendarBean.onTaskSelect}"
 					update="taskDetails" oncomplete="PF('taskDialog').show();" />
 				</p:schedule>
