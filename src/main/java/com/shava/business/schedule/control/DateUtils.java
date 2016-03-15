@@ -13,14 +13,14 @@ public class DateUtils {
   }
 
   public static Date asDate(LocalDateTime localDateTime) {
-    return Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());
+    return Date.from(localDateTime.atZone(ZoneId.of("GMT-5")).toInstant());
   }
 
   public static LocalDate asLocalDate(Date date) {
-    return Instant.ofEpochMilli(date.getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
+    return Instant.ofEpochMilli(date.getTime()).atZone(ZoneId.of("GMT-5")).toLocalDate();
   }
 
   public static LocalDateTime asLocalDateTime(Date date) {
-    return Instant.ofEpochMilli(date.getTime()).atZone(ZoneId.systemDefault()).toLocalDateTime();
+    return Instant.ofEpochMilli(date.getTime()).atZone(ZoneId.of("GMT-5")).toLocalDateTime();
   }
 }
